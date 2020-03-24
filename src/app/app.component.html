@@ -1,0 +1,24 @@
+<div>
+  <label>Title</label>
+  <input [(ngModel)] ="titleMessage"><br>
+  <label>Message</label>
+  <input [(ngModel)] ="message"><br>
+  <label>Image Url</label>
+  <input  [(ngModel)] ="imageMessage"><br>
+  <input type="hidden" [(ngModel)]="vote" value="0">
+  <button (click)="showAlert()">Click</button>
+  <ol>
+    <li *ngFor = "let message of messageList">
+      <app-message
+        [id]="message.id"
+        [titleMessage] ="message.titleMessage"
+        [imageMessage]="message.imageMessage"
+        [body] = "message.body"
+        [vote] ="message.vote"
+        (removed)="onRemove($event)"
+        (increased)="onIncrease($event)"
+        (decreased)="onDecrease($event)"
+        ></app-message>
+    </li>
+  </ol>
+</div>

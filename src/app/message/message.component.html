@@ -1,0 +1,19 @@
+<div>
+  {{id}}
+  <br>
+  {{titleMessage}}
+  <br>
+  <ol>
+    <li *ngFor="let image of imageMessage">
+      <img src="{{image}}">
+    </li>
+  </ol>
+  <br>
+  {{body}}
+  <div>
+    <button (click)="reduceVote(id)">-1</button>
+    {{vote}}
+    <button (click)="increaseVote(id)">+1</button>
+  </div>
+  <button (click)="remove(id)">&times;</button>
+</div>
