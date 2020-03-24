@@ -6,7 +6,7 @@ interface Message {
   titleMessage: string;
   vote: number;
   body: string;
-  imageMessage: string;
+  imageMessage: string[];
 }
 
 @Component({
@@ -20,21 +20,18 @@ export class AppComponent {
   message = 'Hello May';
   vote: number;
   titleMessage: string;
+  image: string ;
+  currentImage: string;
   imageMessage: string;
-  /*imageMessage: any[] = [{
-    imageUrl: ''
-  }];*/
   messageList: Message[] = [];
-/*
-  addImage(){
-    this.imageMessage.push({
-      imageUrl: 'fhdfgh'
-    });
+
+  leftImage(i: number) {
+    this.currentImage = this.imageMessage[i - 1];
   }
 
-  removeImage(i: number) {
-    this.imageMessage.splice(i, 1);
-  }*/
+  rightImage(i: number) {
+    this.currentImage = this.imageMessage[i + 1];
+  }
 
   onRemove(id: number) {
     const index = this.messageList.findIndex(message => message.id === id);
@@ -54,13 +51,14 @@ export class AppComponent {
   }
 
   showAlert(): void {
+    console.log(this.imageMessage);
     this.messageList.push({
           id: this.messageList.length + 1,
           createdAt: new Date(),
           body: this.message,
           vote: 0,
           titleMessage: this.titleMessage,
-          imageMessage: this.imageMessage
+          imageMessage: this.imageMessage.split(';')
         }
     );
   }

@@ -1,17 +1,13 @@
 <div>
-  <label>Title</label>
+  <label>Title</label><br>
   <input [(ngModel)] ="titleMessage"><br>
-  <label>Message</label>
+  <label>Message</label><br>
   <input [(ngModel)] ="message"><br>
-  <input  [(ngModel)] ="imageMessage">
-<!--  <section *ngFor="let address of imageMessage; let i = index;">
-    <p>Image {{i+1}}</p>
-    <label>Image Url</label>
-    <input  [(ngModel)] ="imageMessage.imageUrl" name="url_{{i}}"><br>
-    <button type="button" class="btn btn-danger btn-sm" (click)="removeImage(i)">Remove</button>
-  </section>
-  <button type="button" (click)="addImage()">Add Image</button>-->
-  <input type="hidden" [(ngModel)]="vote" value="0">
+  <label>Image</label><br>
+  <input type="text" [(ngModel)] ="imageMessage" height="100"><br>
+  <input type="hidden" [(ngModel)]="vote" value="0"><br>
+  <span> seperate with ;</span>
+  <br>
   <button (click)="showAlert()">Click</button>
   <ul>
     <li *ngFor = "let message of messageList">

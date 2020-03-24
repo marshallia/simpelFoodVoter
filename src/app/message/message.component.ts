@@ -12,7 +12,7 @@ export class MessageComponent implements OnInit {
   @Input() titleMessage: string;
   @Input() vote: number;
   @Input() body: string;
-  @Input() imageMessage: string;
+  @Input() imageMessage: string[];
 
   @Output() removed = new EventEmitter<number>();
   @Output() increased = new EventEmitter<number>();
