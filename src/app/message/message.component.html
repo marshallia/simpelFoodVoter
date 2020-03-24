@@ -1,19 +1,13 @@
-<div>
-  {{id}}
-  <br>
-  {{titleMessage}}
-  <br>
-  <ol>
-    <li *ngFor="let image of imageMessage">
-      <img src="{{image}}">
-    </li>
-  </ol>
-  <br>
-  {{body}}
-  <div>
-    <button (click)="reduceVote(id)">-1</button>
-    {{vote}}
-    <button (click)="increaseVote(id)">+1</button>
+<div class="card mb-3" style="max-width: 540px;">
+  <div class="row no-gutters">
+    <div class="col-md-4">
+      <img src="{{imageMessage}}" class="card-img" >
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h5 class="card-title" >{{titleMessage}}</h5>
+        <p class="card-text">{{body}}</p>
+      </div>
+    </div>
   </div>
-  <button (click)="remove(id)">&times;</button>
 </div>

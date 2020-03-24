@@ -21,19 +21,20 @@ export class AppComponent {
   vote: number;
   titleMessage: string;
   imageMessage: string;
+  /*imageMessage: any[] = [{
+    imageUrl: ''
+  }];*/
   messageList: Message[] = [];
-
-  showAlert(): void {
-      this.messageList.push({
-        id: this.messageList.length + 1,
-        createdAt: new Date(),
-        body: this.message,
-        vote: 0,
-        titleMessage: this.titleMessage,
-        imageMessage: this.imageMessage
-        }
-      );
+/*
+  addImage(){
+    this.imageMessage.push({
+      imageUrl: 'fhdfgh'
+    });
   }
+
+  removeImage(i: number) {
+    this.imageMessage.splice(i, 1);
+  }*/
 
   onRemove(id: number) {
     const index = this.messageList.findIndex(message => message.id === id);
@@ -51,4 +52,17 @@ export class AppComponent {
     console.log(index);
     this.messageList[index].vote = this.messageList[index].vote - 1;
   }
+
+  showAlert(): void {
+    this.messageList.push({
+          id: this.messageList.length + 1,
+          createdAt: new Date(),
+          body: this.message,
+          vote: 0,
+          titleMessage: this.titleMessage,
+          imageMessage: this.imageMessage
+        }
+    );
+  }
+
 }
